@@ -58,7 +58,7 @@ test.skip('Test order Page', async ({page}) => {
 
 });
 
-test.skip('Test Link Page', async ({page}) => {
+test('Test Link Page', async ({page}) => {
 
     const login=new Home(page);
     await login.goto();
@@ -96,7 +96,7 @@ test.skip('Test Free Skin Page', async ({page}) => {
 });
 
 
-test('Test Hover Page', async ({page}) => {
+test.skip('Test Hover Page', async ({page}) => {
 
   try {
     const popup = await this.page.waitForSelector('.wzrk-alert', { timeout: 5000 });

@@ -30,8 +30,6 @@ this.chatClick=page.locator(".faq-bot-button-icon");
           await this.page.waitForTimeout(1000);
         }
 
-
-
     async loginHover(){
               await this.page.waitForTimeout(1000);
               await this.page.locator(this.continueAsGuest).click();
@@ -50,18 +48,43 @@ this.chatClick=page.locator(".faq-bot-button-icon");
     await this.page.locator(this.continueAsGuest).click();
     await this.page.click('a:has-text("Young Scientists Program")');
     await this.page.waitForTimeout(1000);
+
+    await expect(this.page).toHaveURL("https://thedermaco.com/educate");
+
+    //await expect(this.page.locator('.sc-igwadP')).toContainText("Our Mission");
+    await this.page.waitForTimeout(1000);
+
     await this.page.click('a.honasa-logo-wrapper');
     await this.page.click('a:has-text("Privacy Policy")');
     await this.page.waitForTimeout(1000);
+    await expect(this.page).toHaveURL("https://thedermaco.com/privacy-policy");
+    const locator = this.page.locator('.cms_text_top');
+    await expect(locator).toBeEnabled();
+    await expect(locator).toHaveText('Privacy Policy')
+
+   // await expect(this.page.locator('.cms_text_top')).toHaveText('Privacy Policy');
+
     await this.page.click('a.honasa-logo-wrapper');
     await this.page.click('a:has-text("Returns")');
     await this.page.waitForTimeout(1000);
+
+     const locators = this.page.locator('.cms_text_top');
+     await expect(locators).toBeEnabled();
+     await expect(locators).toHaveText('Return Policy');
+
     await this.page.click('a.honasa-logo-wrapper');
     await this.page.click('a:has-text("Terms & Conditions")');
     await this.page.waitForTimeout(1000);
+
+    const locatorsCondition = this.page.locator('.cms_text_top');
+    await expect(locatorsCondition).toHaveText('Terms of Service Agreement');
+
     await this.page.click('a.honasa-logo-wrapper');
     await this.page.click('a:has-text("Contact Us")');
     await this.page.waitForTimeout(1000);
+
+    const locatorsContact = this.page.locator('header');
+    await expect(locatorsContact).toHaveText('Contact Us');
 
     await this.page.type('input[name="name"]','Ram');
     await this.page.type('input[name="email"]','Ram12@gmail.com');
@@ -110,7 +133,6 @@ this.chatClick=page.locator(".faq-bot-button-icon");
          await this.page.waitForTimeout(500);
          }
 
-
     async ManageAddressHover(){
             await this.page.waitForTimeout(500);
             await this.page.locator(this.continueAsGuest).click();
@@ -128,9 +150,6 @@ this.chatClick=page.locator(".faq-bot-button-icon");
             await this.page.click('//*[text()="Contact Us"]')
             await this.page.waitForTimeout(5000);
             }
-
-
-
 
  async linkSelectContact(){
     await this.page.waitForTimeout(1000);
